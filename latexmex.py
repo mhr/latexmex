@@ -29,12 +29,12 @@ class LatexHandler(FileSystemEventHandler):
                 self.cleanup()
                 self.counts[texfile] += 1
     def cleanup(self):
-        for texfile in glob.glob("*.log"):
-            os.remove(texfile)
-        for texfile in glob.glob("*.dvi"):
-            os.remove(texfile)
-        for texfile in glob.glob("*.aux"):
-            os.remove(texfile)
+        for f in glob.glob("*.log"):
+            os.remove(f)
+        for f in glob.glob("*.dvi"):
+            os.remove(f)
+        for f in glob.glob("*.aux"):
+            os.remove(f)
 
 if __name__ == "__main__":
     path = sys.argv[1] if len(sys.argv) > 1 else "."
