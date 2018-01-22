@@ -1,5 +1,5 @@
 # LaTexMex
-A convenient script to recompile LaTeX to PDF on each save
+A convenient script to automatically recompile LaTeX to PDF on each save
 
 # Dependencies
 - [MikTeX](https://miktex.org/download)
