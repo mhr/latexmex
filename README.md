@@ -2,8 +2,8 @@
 Script to recompile LaTeX to PDF on each save
 
 # Dependencies
-- Python
-- MikTeX
+- [MikTeX](https://miktex.org/download)
+- Python 3
 
 # License
 MIT
