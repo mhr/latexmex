@@ -43,7 +43,7 @@ if __name__ == "__main__":
     observer.schedule(event_handler, path, recursive=True)
     observer.start()
 
-    print("[ Latex Debugging Mode ]")
+    print("[ LaTeXMeX Debugging Mode ]")
 
     try:
         while True:
