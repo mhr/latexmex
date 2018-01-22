@@ -1,4 +1,4 @@
-# LaTexMex
+# LaTeXMeX
 A convenient script to automatically recompile LaTeX to PDF on each save
 
 # Dependencies
