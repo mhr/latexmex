@@ -6,7 +6,7 @@ A convenient script to automatically recompile LaTeX to PDF on each save
 - Python 3
 
 # Quick Examples
-Press `Ctrl+C` to quit.
+Press <kbd>Ctrl</kbd>-<kbd>C</kbd> to quit.
 
 | Command  | Description |
 | ------------- | ------------- |
