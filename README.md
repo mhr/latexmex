@@ -1,2 +1,9 @@
 # LaTexMex
-MiKTeX-based script that recompiles LaTeX to PDF on each save
+Script to recompile LaTeX to PDF on each save
+
+# Dependencies
+- Python
+- MikTeX
+
+# License
+MIT
