@@ -6,13 +6,10 @@ A convenient script to automatically recompile LaTeX to PDF on each save
 - Python 3
 
 # Quick Examples
-- `python latexmex.py`
-
-Searches inside current directory.
-
-- `python latexmex.py DIR_PATH`
-
-Searches inside the directory `DIR_PATH`.
+| Command  | Description |
+| ------------- | ------------- |
+| `python latexmex.py` | Searches inside current directory  |
+| `python latexmex.py DIR_PATH` | Searches inside the directory `DIR_PATH` |
 
 # License
 MIT
