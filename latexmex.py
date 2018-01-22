@@ -15,26 +15,26 @@ FNULL = open(os.devnull, "w")
 
 class LatexHandler(FileSystemEventHandler):
     def __init__(self):
-        self.files = defaultdict(str)
+        self.texfiles = defaultdict(str)
         self.counts = defaultdict(int)
     def on_modified(self, event):
-        file = os.path.basename(os.path.normpath(event.src_path))
-        if file.endswith(".tex"):
-            curr_hash = latex_hash(file)
-            if self.files[file] != curr_hash:
-                print("[ Recompiling {} ({}) ]".format(file, self.counts[file]))
-                self.files[file] = curr_hash
-                subprocess.run("texify {}".format(file), shell=True, stdout=FNULL, stderr=subprocess.STDOUT)
-                subprocess.run("dvipdfm {}.dvi".format(file[:-4]), shell=True, stdout=FNULL, stderr=subprocess.STDOUT)
+        texfile = os.path.basename(os.path.normpath(event.src_path))
+        if texfile.endswith(".tex"):
+            curr_hash = latex_hash(texfile)
+            if self.texfiles[texfile] != curr_hash:
+                print("[ Recompiling {} ({}) ]".format(texfile, self.counts[texfile]))
+                self.texfiles[texfile] = curr_hash
+                subprocess.run("texify {}".format(texfile), shell=True, stdout=FNULL, stderr=subprocess.STDOUT)
+                subprocess.run("dvipdfm {}.dvi".format(texfile[:-4]), shell=True, stdout=FNULL, stderr=subprocess.STDOUT)
                 self.cleanup()
-                self.counts[file] += 1
+                self.counts[texfile] += 1
     def cleanup(self):
-        for file in glob.glob("*.log"):
-            os.remove(file)
-        for file in glob.glob("*.dvi"):
-            os.remove(file)
-        for file in glob.glob("*.aux"):
-            os.remove(file)
+        for texfile in glob.glob("*.log"):
+            os.remove(texfile)
+        for texfile in glob.glob("*.dvi"):
+            os.remove(texfile)
+        for texfile in glob.glob("*.aux"):
+            os.remove(texfile)
 
 if __name__ == "__main__":
     path = sys.argv[1] if len(sys.argv) > 1 else "."
