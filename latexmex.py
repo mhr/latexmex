@@ -1,7 +1,7 @@
 import sys
 import time
 from watchdog.observers import Observer
-from watchdog.events import FileSystemEventHandler, FileModifiedEvent, LoggingEventHandler
+from watchdog.events import FileSystemEventHandler
 import subprocess
 import hashlib
 import os
