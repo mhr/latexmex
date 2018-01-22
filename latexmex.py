@@ -5,6 +5,7 @@ from watchdog.events import FileSystemEventHandler, FileModifiedEvent, LoggingEv
 import subprocess
 import hashlib
 import os
+import glob
 from collections import defaultdict
 
 def latex_hash(key):
@@ -18,13 +19,22 @@ class LatexHandler(FileSystemEventHandler):
         self.counts = defaultdict(int)
     def on_modified(self, event):
         file = os.path.basename(os.path.normpath(event.src_path))
-        curr_hash = latex_hash(file)
-        if file[-4:] == ".tex" and self.files[file] != curr_hash:
-            print("[ Recompiling {} ({}) ]".format(file, self.counts[file]))
-            self.files[file] = curr_hash
-            subprocess.run("texify {}".format(file), shell=True, stdout=FNULL, stderr=subprocess.STDOUT)
-            subprocess.run("dvipdfm {}.dvi".format(file[:-4]), shell=True, stdout=FNULL, stderr=subprocess.STDOUT)
-            self.counts[file] += 1
+        if file.endswith(".tex"):
+            curr_hash = latex_hash(file)
+            if self.files[file] != curr_hash:
+                print("[ Recompiling {} ({}) ]".format(file, self.counts[file]))
+                self.files[file] = curr_hash
+                subprocess.run("texify {}".format(file), shell=True, stdout=FNULL, stderr=subprocess.STDOUT)
+                subprocess.run("dvipdfm {}.dvi".format(file[:-4]), shell=True, stdout=FNULL, stderr=subprocess.STDOUT)
+                self.cleanup()
+                self.counts[file] += 1
+    def cleanup(self):
+        for file in glob.glob("*.log"):
+            os.remove(file)
+        for file in glob.glob("*.dvi"):
+            os.remove(file)
+        for file in glob.glob("*.aux"):
+            os.remove(file)
 
 if __name__ == "__main__":
     path = sys.argv[1] if len(sys.argv) > 1 else "."
