@@ -7,6 +7,7 @@ A convenient script to automatically recompile LaTeX to PDF on each save
 
 # Quick Examples
 You can press `Ctrl+C` to quit.
+
 | Command  | Description |
 | ------------- | ------------- |
 | `python latexmex.py` | Search inside current directory  |
