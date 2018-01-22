@@ -8,8 +8,8 @@ A convenient script to automatically recompile LaTeX to PDF on each save
 # Quick Examples
 | Command  | Description |
 | ------------- | ------------- |
-| `python latexmex.py` | Searches inside current directory  |
-| `python latexmex.py DIR_PATH` | Searches inside the directory `DIR_PATH` |
+| `python latexmex.py` | Search inside current directory  |
+| `python latexmex.py DIR_PATH` | Search inside the directory `DIR_PATH` |
 
 # License
 MIT
