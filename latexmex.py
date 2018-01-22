@@ -24,7 +24,7 @@ class LatexHandler(FileSystemEventHandler):
             if self.texfiles[texfile] != curr_hash:
                 print("[ Recompiling {} ({}) ]".format(texfile, self.counts[texfile]))
                 self.texfiles[texfile] = curr_hash
-                subprocess.run("texify {}".format(texfile), shell=True, stdout=FNULL, stderr=subprocess.STDOUT)
+                subprocess.run("texify -b {}".format(texfile), shell=True, stdout=FNULL, stderr=subprocess.STDOUT)
                 subprocess.run("dvipdfm {}.dvi".format(texfile[:-4]), shell=True, stdout=FNULL, stderr=subprocess.STDOUT)
                 self.cleanup()
                 self.counts[texfile] += 1
