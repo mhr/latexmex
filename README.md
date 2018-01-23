@@ -1,5 +1,5 @@
 # TeXMex
-A convenient script to automatically recompile TeX/LaTeX to PDF on each save
+Editor-agnostic build tool for debugging and automatically compiling LaTeX scripts
 
 # Dependencies
 - [MikTeX](https://miktex.org/download)
