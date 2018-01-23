@@ -1,4 +1,4 @@
-# LaTeXMex
+# TeXMex
 A convenient script to automatically recompile TeX/LaTeX to PDF on each save
 
 # Dependencies
@@ -10,8 +10,8 @@ Press <kbd>Ctrl</kbd>-<kbd>C</kbd> to quit.
 
 | Command  | Description |
 | ------------- | ------------- |
-| `python latexmex.py` | Search inside current directory  |
-| `python latexmex.py DIR_PATH` | Search inside the directory `DIR_PATH` |
+| `python texmex.py` | Search inside current directory  |
+| `python texmex.py DIR_PATH` | Search inside the directory `DIR_PATH` |
 
 # License
 MIT
