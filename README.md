@@ -1,5 +1,5 @@
 # TeXMex
-Editor-agnostic build tool for debugging and automatically compiling LaTeX scripts
+Editor-agnostic build tool for debugging and automatically compiling TeX scripts
 
 # Dependencies
 - [MikTeX](https://miktex.org/download)
